@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Observable } from "rxjs/Observable";
+import { HttpClient } from "@angular/common/http";
 
+import { ApiProvider } from './../../providers/api/api';
+ 
 /**
  * Generated class for the FilmsPage page.
  *
@@ -14,12 +18,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'films.html',
 })
 export class FilmsPage {
+  films: Observable<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public apiProvider: ApiProvider ) {
+    this.films = this.apiProvider.getFilms();
+  
   }
 
- openDetails() {
-   this.navCtrl.push('FilmDetailsPage', {filmId: 2});
+ openDetails(film) {
+   this.navCtrl.push('FilmDetailsPage', {film: film});
  }
  goToBeverages(){
    this.navCtrl.parent.select(2);

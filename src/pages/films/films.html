@@ -14,6 +14,8 @@
 
 
 <ion-content padding>
-  <button ion-button full (click)="openDetails()">Go to Details</button>
+  <ion-list>
+    <button ion-item *ngFor="let film of (films | async)?.results" (click)="openDetails(film)">{{film.title}}</button>
+  </ion-list>
  <button ion-button full (click)="goToBeverages()">Switch to Beverages</button>
 </ion-content>
