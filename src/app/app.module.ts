@@ -11,6 +11,8 @@ import { MyApp } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiProvider } from '../providers/api/api';
 import { EmailComposer } from '@ionic-native/email-composer';
+import { FavoriteProvider } from '../providers/favorite/favorite';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { EmailComposer } from '@ionic-native/email-composer';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -35,7 +38,8 @@ import { EmailComposer } from '@ionic-native/email-composer';
     SplashScreen,
     EmailComposer,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ApiProvider
+    ApiProvider,
+    FavoriteProvider
   ]
 })
 export class AppModule {}

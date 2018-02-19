@@ -8,6 +8,10 @@
 
   <ion-navbar color="primary">
     <ion-title>{{film.title}}</ion-title>
+    <ion-buttons end>
+      <button><ion-icon (click)="unFavoriteFilm()"  *ngIf="isFavorite" name="star"></ion-icon></button>
+      <button><ion-icon (click)="FavoriteFilm()"  *ngIf="!isFavorite" name="star-outline"></ion-icon></button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
