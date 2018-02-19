@@ -20,7 +20,15 @@ export class FilmDetailsPage {
     })
   }
   favoriteFilm() {
-    
+    this.favoriteProvider.favoriteFilm(this.film.episode_id).then(() => {
+      this.isFavorite = true;
+    });
+  }
+
+  unFavoriteFilm() {
+    this.favoriteProvider.unfavoriteFilm(this.film.episode_id).then(() => {
+        this.isFavorite = false;
+    });
   }
 
   goBack(){
