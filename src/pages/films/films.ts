@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Observable } from "rxjs/Observable";
 import { HttpClient } from "@angular/common/http";
-
+import { NgModule } from "@angular/core";
 import { ApiProvider } from './../../providers/api/api';
- 
+
 /**
  * Generated class for the FilmsPage page.
  *

@@ -14,18 +14,21 @@ import { EmailComposer } from '@ionic-native/email-composer';
 import { FavoriteProvider } from '../providers/favorite/favorite';
 import { IonicStorageModule } from '@ionic/storage';
 
+import { ComponentsModule } from "../components/components.module";
+
 
 @NgModule({
   declarations: [
     MyApp,
-    //HomePage,
+      //HomePage,
     
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    ComponentsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
