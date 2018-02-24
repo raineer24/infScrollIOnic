@@ -9,8 +9,8 @@
   <ion-navbar color="primary">
     <ion-title>{{film.title}}</ion-title>
     <ion-buttons end>
-      <button><ion-icon (click)="unFavoriteFilm()"  *ngIf="isFavorite" name="star"></ion-icon></button>
-      <button><ion-icon (click)="favoriteFilm()"  *ngIf="!isFavorite" name="star-outline"></ion-icon></button>
+      <button><ion-icon color="secondary" (click)="unFavoriteFilm()"  *ngIf="isFavorite" name="star"></ion-icon></button>
+      <button><ion-icon color="secondary" (click)="favoriteFilm()"  *ngIf="!isFavorite" name="star-outline"></ion-icon></button>
     </ion-buttons>
   </ion-navbar>
 
@@ -24,5 +24,6 @@
       </ion-card-content>
   </ion-card>
 
-  <button ion-button full (click)="shareFilm()">Share by Email</button>
+<button ion-button color="secondary"  full (click)="shareFilm()">Share by Email</button>
+
 </ion-content>

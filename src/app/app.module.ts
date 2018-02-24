@@ -22,7 +22,7 @@ import { ComponentsModule } from "../components/components.module";
     MyApp,
       //HomePage,
     
-  ],
+  ],  
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
