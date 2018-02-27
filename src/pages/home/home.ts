@@ -1,36 +1,69 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { HttpClient } from '@angular/common/http';
-import "rxjs/add/operator/map";
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+import { Observable } from "rxjs";
+import { Subject } from "rxjs/Subject";
+/**
+ * Generated class for the HomePage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
+@IonicPage()
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
 })
 export class HomePage {
-  // users = [];
-  // page = 0;
-  // maximumPages = 3;
 
-  // constructor(public navCtrl: NavController, private httpClient: HttpClient) {
-  //     // this.loadUsers();
-  // }
-  // loadUsers(infiniteScroll?) {
-  //   this.httpClient.get(`https://randomuser.me/api/?results=20&page=${this.page}`)
-  //   .subscribe(res => {
-  //     this.users = this.users.concat(res['results']);
-  //     if(infiniteScroll) {
-  //       infiniteScroll.complete();
-  //     }
-  //   })
-  // }
-  // loadMore(infiniteScroll){
-  //   this.page++;
-  //   this.loadUsers(infiniteScroll);
+  apple: any;
+  banana: any;
+  
+  
 
-  //   if(this.page === this.maximumPages){
-  //     infiniteScroll.enable(false);
-  //   }
-  // }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
+     let mySubject = new Subject(); 
+     
+     mySubject.subscribe((data) => {
+       console.log(data);
+     });
 
+     mySubject.next("Omg");
+   
+    // let myObservable = Observable.create(observer => {
+    //   observer.next("Hello");
+    // });
+
+    // myObservable.subscribe((data) => {
+    //     console.log(data);
+    // });
+  }
+  
+
+  
+
+  ionViewDidLoad() {
+    this.getFromStorageStandard().then((result) => {
+      this.apple = result;
+    });
+
+    this.banana = this.getFromStorageAsync();
+  }
+  setInStorage(){
+    this.storage.set('apple', '3.99');
+     this.storage.set("banana", "4.25");
+  }
+
+  getFromStorageStandard(){
+    return this.storage.get('apple');
+  }
+
+  async getFromStorageAsync(){
+    return await this.storage.get('banana');
+  }
+
+  navigateToPeoplePage(){
+    this.navCtrl.push("PeoplePage");
+  }
 }

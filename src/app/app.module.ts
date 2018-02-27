@@ -6,7 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { TabsPage } from "../pages/tabs/tabs";
 import { MyApp } from './app.component';
-//import { HomePage } from '../pages/home/home';
+import { HomePage } from '../pages/home/home';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ApiProvider } from '../providers/api/api';
@@ -20,7 +20,7 @@ import { ComponentsModule } from "../components/components.module";
 @NgModule({
   declarations: [
     MyApp,
-      //HomePage,
+      
     
   ],  
   imports: [
@@ -33,7 +33,7 @@ import { ComponentsModule } from "../components/components.module";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    //HomePage,
+    
     
   ],
   providers: [

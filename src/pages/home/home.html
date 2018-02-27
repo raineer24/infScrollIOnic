@@ -1,26 +1,23 @@
+<!--
+  Generated template for the HomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
 <ion-header>
+
   <ion-navbar>
-    <ion-title>
-      Infinite scroll
-    </ion-title>
+    <ion-title>home</ion-title>
   </ion-navbar>
+
 </ion-header>
 
+
 <ion-content padding>
- <ion-card *ngFor="let user of users">
-    <ion-item>
-      <ion-avatar>
-        <img [src]="user.picture.medium">
-      </ion-avatar>
-      <h2 text-capitalize>{{ user.name?.first }} {{ user.name?.last }}</h2>
-    </ion-item>
-<ion-card-content>
-  {{ user.email}}
-</ion-card-content>
 
-<ion-infinite-scroll (ionInfinite)="loadMore($event)" loadingSpinner="bubbles" loadingText="Loading Users....">
-  <ion-infinite-scroll-content></ion-infinite-scroll-content>
-</ion-infinite-scroll>
+  <h3>Apple: {{ apple }}</h3>
+  <h3>Banana: {{ banana | async }}</h3>
 
- </ion-card>
+  <button ion-button (click)="setInStorage()">Set Data</button>
+  <button ion-button (click)="navigateToPeoplePage()">Navigate</button>
 </ion-content>
